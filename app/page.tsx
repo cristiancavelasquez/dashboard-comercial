@@ -1,15 +1,17 @@
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { authOptions } from "./api/auth/[...nextauth]/route";
+import MainTable from "./MainTable";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
+
   if (session) {
     return (
       <div className="flex flex-col gap-4">
         <h1 className="text-3xl font-bold">Bienvenido {session?.user?.name}</h1>
-        <p>Aqui irá la tabla o cards principales, solo lectura</p>
-        
+        <p>{JSON.stringify(session)}</p>
+        <MainTable />
       </div>
     );
   }

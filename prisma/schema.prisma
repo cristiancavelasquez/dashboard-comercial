@@ -49,6 +49,7 @@ model User {
   accounts       Account[]
   sessions       Session[]
   Laboratorios   Laboratorios[]
+  rol           Rol            @default(KAM)
 }
 
 model Laboratorios {
@@ -65,6 +66,11 @@ model Laboratorios {
   status    Status   @default(Pendiente)
 
   //@@index([kamId], name: "kamId")
+}
+
+enum Rol {
+  KAM
+  ADMIN
 }
 
 enum Tipo {
