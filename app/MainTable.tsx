@@ -13,12 +13,12 @@ import { authOptions } from "./api/auth/[...nextauth]/route";
 interface Props {}
 
 const MainTable = async (props: Props) => {
-  const session = await getServerSession(authOptions);
+  /*   const session = await getServerSession(authOptions);   */
   const res = await fetch("http://localhost:3000/api/laboratorio");
   const data = await res.json();
   return (
-    <Table>
-      <TableCaption>A list of your recent invoices.</TableCaption>
+    <Table className="border-2 ">
+      <TableCaption>By: Cristian Velásquez</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead>Laboratorio</TableHead>
@@ -26,7 +26,7 @@ const MainTable = async (props: Props) => {
           <TableHead>Geo Px</TableHead>
           <TableHead>TD</TableHead>
           <TableHead>RM</TableHead>
-          <TableHead>Kam</TableHead>
+          <TableHead>KAM</TableHead>
           <TableHead>Tipo</TableHead>
           <TableHead>Status</TableHead>
         </TableRow>
@@ -35,11 +35,11 @@ const MainTable = async (props: Props) => {
         {data.map((item: any) => (
           <TableRow key={item.id}>
             <TableCell>{item.name}</TableCell>
-            <TableCell>{item.geo360.toString()}</TableCell>
-            <TableCell>{item.geoPx.toString()}</TableCell>
-            <TableCell>{item.TD.toString()}</TableCell>
-            <TableCell>{item.RM.toString()}</TableCell>
-            <TableCell>{item.kamId}</TableCell>
+            <TableCell>{item.geo360 ? "Sí" : "No"}</TableCell>
+            <TableCell>{item.geoPx ? "Sí" : "No"}</TableCell>
+            <TableCell>{item.TD ? "Sí" : "No"}</TableCell>
+            <TableCell>{item.RM ? "Sí" : "No"}</TableCell>
+            <TableCell>{item.kam.name}</TableCell>
             <TableCell>{item.tipo}</TableCell>
             <TableCell>{item.status}</TableCell>
           </TableRow>

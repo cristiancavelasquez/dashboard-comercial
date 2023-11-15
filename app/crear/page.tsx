@@ -3,9 +3,11 @@ interface Props {}
 
 const page = (props: Props) => {
   return (
-    <div className="w-full flex items-center justify-center">
-      <FormCrear />
-    </div>
+    <section className="w-full flex justify-center">
+      <div className="w-96 flex items-center justify-center bg-white rounded-3xl py-5 border-2 shadow-lg my-4">
+        <FormCrear />
+      </div>
+    </section>
   );
 };
 

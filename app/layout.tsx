@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg">
-      <body className="bg-slate-300">
+      <body className="bg-zinc-50">
         <AuthProvider>
           <main>
             <Navbar />

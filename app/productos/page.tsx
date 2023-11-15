@@ -14,6 +14,14 @@ const page = async (props: Props) => {
     where: {
       kamId: session!.user.id,
     },
+    include: {
+      kam: true,
+    },
+  });
+  const todosLabs = await prisma.laboratorios.findMany({
+    include: {
+      kam: true,
+    },
   });
   return (
     <div className="flex flex-col gap-4">
@@ -24,20 +32,38 @@ const page = async (props: Props) => {
       >
         Crear Producto
       </Link>
-      <section className="grid grid-cols-4 gap-10">
-        {misLabs.map((lab) => (
-          <Cards
-            key={lab.id}
-            name={lab.name}
-            kamId={lab.kamId}
-            RM={lab.RM}
-            TD={lab.TD}
-            geo360={lab.geo360}
-            geoPx={lab.geoPx}
-            tipo={lab.tipo}
-            status={lab.status}
-          />
-        ))}
+      <section className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-5">
+        {session?.user.rol === "ADMIN"
+          ? todosLabs.map((lab) => (
+              <Cards
+                key={lab.id}
+                id={lab.id}
+                name={lab.name}
+                kamId={lab.kamId}
+                RM={lab.RM}
+                TD={lab.TD}
+                geo360={lab.geo360}
+                geoPx={lab.geoPx}
+                tipo={lab.tipo}
+                status={lab.status}
+                kam={lab.kam}
+              />
+            ))
+          : misLabs.map((lab) => (
+              <Cards
+                key={lab.id}
+                id={lab.id}
+                name={lab.name}
+                kamId={lab.kamId}
+                RM={lab.RM}
+                TD={lab.TD}
+                geo360={lab.geo360}
+                geoPx={lab.geoPx}
+                tipo={lab.tipo}
+                status={lab.status}
+                kam={lab.kam}
+              />
+            ))}
       </section>
     </div>
   );

@@ -18,6 +18,11 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-  const labs = await prisma.laboratorios.findMany();
+  const labs = await prisma.laboratorios.findMany({
+    include: {
+      kam: true,
+    },
+  });
+  console.log(labs);
   return NextResponse.json(labs);
 }

@@ -28,12 +28,21 @@ const AvatarMenu = (props: Props) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button size="icon" className="rounded-full">{iniciales}</Button>
+        <Button size="icon" className="rounded-full">
+          {iniciales}
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>{props.nombre}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="text-red-600 font-normal">
+        <DropdownMenuItem className="font-normal hover:font-semibold">
+          <Link href="/">Home</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem className="font-normal hover:font-semibold">
+          <Link href="/productos">Mis productos</Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem className="text-red-600 font-normal hover:font-bold">
           <Link href="/api/auth/signout">Cerrar Sesión</Link>
         </DropdownMenuItem>
       </DropdownMenuContent>

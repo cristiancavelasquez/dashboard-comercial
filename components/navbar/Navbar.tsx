@@ -11,12 +11,12 @@ const Navbar = async (props: Props) => {
   const session = await getServerSession(authOptions);
   const nombre = session?.user?.name;
   return (
-    <section className="bg-red-400 px-8 py-4 flex justify-between items-center">
+    <section className="bg-white border-b-2 border-black px-8 py-4 flex justify-between items-center">
       <div className="flex gap-20">
         <img
           src="https://www.close-upinternational.mx/regional_analyzer/images/logoCup.png"
           alt="LOGO"
-          className="w-20"
+          className="w-24"
         />
         {session && <Menu />}
       </div>

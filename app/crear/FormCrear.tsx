@@ -207,11 +207,11 @@ const FormCrear = (props: Props) => {
             </FormItem>
           )}
         />
-        <div className="flex justify-between">
+        <div className="flex justify-between gap-5">
           <Button variant="destructive">
             <Link href="/productos">Cancelar</Link>
           </Button>
-          <Button type="submit">Submit</Button>
+          <Button type="submit">Crear</Button>
         </div>
       </form>
     </Form>
