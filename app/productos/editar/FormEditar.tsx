@@ -91,7 +91,7 @@ const FormEditar = (props: datosPrecargados) => {
       status: data.status,
     };
 
-    fetch(`http://localhost:3000/api/producto/${params.id}`, {
+    fetch(process.env.NEXTAUTH_URL+`/api/producto/${params.id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",

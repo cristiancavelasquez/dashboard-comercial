@@ -14,7 +14,7 @@ interface Props {}
 
 const MainTable = async (props: Props) => {
   /*   const session = await getServerSession(authOptions);   */
-  const res = await fetch("http://localhost:3000/api/laboratorio");
+  const res = await fetch(process.env.NEXTAUTH_URL+"/api/laboratorio");
   const data = await res.json();
   return (
     <Table className="border-2 ">

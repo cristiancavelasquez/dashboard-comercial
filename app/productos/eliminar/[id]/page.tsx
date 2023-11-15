@@ -17,7 +17,7 @@ type Props = {};
 const EliminarProducto = (props: Props) => {
     const params = useParams();
   const handleEliminar = () => {
-    fetch(`http://localhost:3000/api/producto/${params.id}`, {
+    fetch(process.env.NEXTAUTH_URL+`/api/producto/${params.id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",

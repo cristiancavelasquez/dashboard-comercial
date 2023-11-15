@@ -69,7 +69,7 @@ const FormCrear = (props: Props) => {
       tipo: data.tipo,
     };
 
-    fetch("http://localhost:3000/api/laboratorio", {
+    fetch(process.env.NEXTAUTH_URL+"/api/laboratorio", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
