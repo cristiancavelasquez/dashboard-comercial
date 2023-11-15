@@ -25,7 +25,7 @@ import * as z from "zod";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-
+import Prisma from "@/prisma/client";
 
 interface Producto {
   name: string;
@@ -61,11 +61,9 @@ const FormEditar = (props: datosPrecargados) => {
   const params = useParams();
   const { data: datosSession } = useSession();
   const router = useRouter();
-
-
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
-        defaultValues: {
+    defaultValues: {
       name: props.datosPrecargados.name,
       td: props.datosPrecargados.TD.toString(),
       rm: props.datosPrecargados.RM.toString(),
@@ -191,7 +189,9 @@ const FormEditar = (props: datosPrecargados) => {
                   <FormLabel>Geo 360</FormLabel>
                   <Select
                     onValueChange={field.onChange}
-                    defaultValue={props.datosPrecargados.geo360 ? "true" : "false"}
+                    defaultValue={
+                      props.datosPrecargados.geo360 ? "true" : "false"
+                    }
                     required={false}
                   >
                     <FormControl>
@@ -216,7 +216,9 @@ const FormEditar = (props: datosPrecargados) => {
                   <FormLabel>Geo Px</FormLabel>
                   <Select
                     onValueChange={field.onChange}
-                    defaultValue={props.datosPrecargados.geoPx ? "true" : "false"}
+                    defaultValue={
+                      props.datosPrecargados.geoPx ? "true" : "false"
+                    }
                     required={false}
                   >
                     <FormControl>
@@ -258,34 +260,34 @@ const FormEditar = (props: datosPrecargados) => {
                 </FormItem>
               )}
             />
-            {datosSession?.user?.rol === "ADMIN" && (
+            {datosSession?.user.rol === "ADMIN" && (
               <FormField
-              control={form.control}
-              name="status"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Status</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={props.datosPrecargados.status}
-                    required={false}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Por favor seleccionar..." />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="Pendiente">Pendiente</SelectItem>
-                      <SelectItem value="QVF">QVF</SelectItem>
-                      <SelectItem value="Publicado">Publicado</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />)
-              }
+                control={form.control}
+                name="status"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Status</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={props.datosPrecargados.status}
+                      required={false}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Por favor seleccionar..." />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="Pendiente">Pendiente</SelectItem>
+                        <SelectItem value="QVF">QVF</SelectItem>
+                        <SelectItem value="Publicado">Publicado</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
             <div className="flex justify-between gap-5">
               <Button variant="destructive">
                 <Link href="/productos">Cancelar</Link>
