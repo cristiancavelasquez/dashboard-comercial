@@ -4,7 +4,6 @@ import prisma from "@/prisma/client";
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
-import type { User } from "next-auth";
 import "next-auth/jwt";
 
 declare module "next-auth/jwt" {
