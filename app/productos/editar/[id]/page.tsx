@@ -12,7 +12,7 @@ const EditarPage = (props: Props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(process.env.NEXTAUTH_URL+`/api/producto/${params.id}`);
+      const res = await fetch(`https://dashboard-comerciall.vercel.app/api/producto/${params.id}`);
       const newData = await res.json();
       setData(newData);
     };

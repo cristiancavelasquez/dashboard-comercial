@@ -91,7 +91,7 @@ const FormEditar = (props: datosPrecargados) => {
       status: data.status,
     };
 
-    fetch(process.env.NEXTAUTH_URL+`/api/producto/${params.id}`, {
+    fetch(`https://dashboard-comerciall.vercel.app/api/producto/${params.id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",

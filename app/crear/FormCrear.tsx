@@ -69,7 +69,7 @@ const FormCrear = (props: Props) => {
       tipo: data.tipo,
     };
 
-    fetch(process.env.NEXTAUTH_URL+"/api/laboratorio", {
+    fetch("https://dashboard-comerciall.vercel.app/api/laboratorio", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
