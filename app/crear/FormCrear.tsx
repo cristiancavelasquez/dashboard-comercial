@@ -69,7 +69,7 @@ const FormCrear = (props: Props) => {
       tipo: data.tipo,
     };
 
-    fetch("https://dashboard-comercial.vercel.app/api/laboratorio", {
+    fetch("https://dashboard-comercial-cup.vercel.app/api/laboratorio", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

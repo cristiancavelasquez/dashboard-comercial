@@ -14,7 +14,7 @@ const ButtonJC = (props: Props) => {
   return (
     <Button
       onClick={() => {
-        fetch("https://dashboard-comercial.vercel.app/api/actualizarestadojc", {
+        fetch("https://dashboard-comercial-cup.vercel.app/api/actualizarestadojc", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
