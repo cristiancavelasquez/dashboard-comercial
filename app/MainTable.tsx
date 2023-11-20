@@ -14,7 +14,7 @@ interface Props {}
 
 const MainTable = async (props: Props) => {
   /*   const session = await getServerSession(authOptions);   */
-  const res = await fetch("https://dashboard-comercial-cup.vercel.app/api/laboratorio");
+  const res = await fetch("https://dashboard-comercial.vercel.app/api/laboratorio");
   const data = await res.json();
   return (
     <Table className="border-2 ">

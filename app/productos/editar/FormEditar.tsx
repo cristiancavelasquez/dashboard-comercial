@@ -91,7 +91,7 @@ const FormEditar = (props: datosPrecargados) => {
       status: data.status,
     };
 
-    fetch(`https://dashboard-comercial-cup.vercel.app/api/producto/${params.id}`, {
+    fetch(`https://dashboard-comercial.vercel.app/api/producto/${params.id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
@@ -102,6 +102,7 @@ const FormEditar = (props: datosPrecargados) => {
       .then((data) => {
         alert(data.mensaje);
         router.push("/productos");
+        router.refresh();
       })
       .catch((error) => {
         console.error(error);

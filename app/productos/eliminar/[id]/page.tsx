@@ -17,7 +17,7 @@ type Props = {};
 const EliminarProducto = (props: Props) => {
     const params = useParams();
   const handleEliminar = () => {
-    fetch(`https://dashboard-comercial-cup.vercel.app/api/producto/${params.id}`, {
+    fetch(`https://dashboard-comercial.vercel.app/api/producto/${params.id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",

@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import prisma from "@/prisma/client";
 import Link from "next/link";
+import ButtonJC from "@/components/botones/ButtonJC";
 
 interface Props {}
 
@@ -23,15 +24,29 @@ const page = async (props: Props) => {
       kam: true,
     },
   });
+
   return (
     <div className="flex flex-col gap-4">
-      <Link
-        href="/crear"
-        className="self-end bg-white border-2 rounded-lg p-2
-         text-green-700 font-bold border-green-600"
-      >
-        Crear Producto
-      </Link>
+      <div className="self-end flex gap-3">
+        
+
+        {session?.user.email === "cristiancavelasquez@gmail.com" && (
+          <ButtonJC texto="Actualizar Pendiente" estado="Pendiente" />
+        )}
+        {session?.user.email === "cristiancavelasquez@gmail.com" && (
+          <ButtonJC texto="Actualizar QVF" estado="QVF" />
+        )}
+        {session?.user.email === "jgarcia@close-upinternational.com.co" && (
+          <ButtonJC texto="Actualizar Publicado" estado="Publicado" />
+        )}
+        <Link
+          href="/crear"
+          className=" bg-white border-2 rounded-lg p-2
+         text-green-700 font-bold border-green-600 hover:bg-green-600 hover:text-white"
+        >
+          Crear Producto
+        </Link>
+      </div>
       <section className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-5">
         {session?.user.rol === "ADMIN"
           ? todosLabs.map((lab) => (
