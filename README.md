@@ -8,27 +8,16 @@ To address the aforementioned issue, I proposed developing a web app that would 
 
 ## Development
 
-In addition to being secure, fast, and user-friendly, this application also needed to be cost-effective to implement since it would serve as an internal tool without generating revenue. For these reasons, I decided to create the application using the T3 stack. This stack provides high security by utilizing Typescript, and for session management, NextAuth was employed, offering robust security features. The database is hosted on neon.tech.[^1]
+In addition to being secure, fast, and user-friendly, this application also needed to be cost-effective to implement since it would serve as an internal tool without generating revenue. For these reasons, I decided to create the application using the T3 stack[^1]. This stack provides high security by utilizing Typescript, and for session management, NextAuth was employed, offering robust security features. The database is hosted on neon.tech. For the design section, I utilized Tailwind CSS in conjunction with the Shadcn library to achieve a simple yet professional aesthetic.
 
 ## Results
 
-The result was an automated process created with Python, where you need to organize the addresses you want to search for in an Excel file, run the program, and obtain a final dataframe with the provided data along with the data that was found.
+The result was a fast and secure application that has greatly streamlined the product update process, eliminating the misunderstandings that occurred with the flat file. Currently, there is no cost associated with the application as both the front and back end are hosted on Vercel, given that it is a Next.js application. Additionally, there are no charges for the database, as the monthly transactions are minimal.
 
-- **Result of the script ```addressToUtc.py```**
-  
-![utc](https://github.com/cristiancavelasquez/Maps_Automation/blob/31208ee67a7368d54116f5daaa513350c9f8ee78/Screenhot_folder/result1.png)
+![1](https://github.com/cristiancavelasquez/dashboard-comercial/assets/102259605/032f1bcb-40f3-44ce-878d-f521ead914a1)
 
-- **Result of the script ```coordsToAddress.py```**
-
-![utc](https://github.com/cristiancavelasquez/Maps_Automation/blob/31208ee67a7368d54116f5daaa513350c9f8ee78/Screenhot_folder/result2.png)
-
-With this structure, the person in charge can compare the initially entered address with the found address and determine visually whether they are a close match. If they are very similar, it is assumed that the UTC was assigned correctly. For those that are not, manual assignment is necessary.
-
-From the tests that have been conducted, this code successfully matches information in approximately 70% of cases. The remaining 30% needs to be assigned manually, but this tool has significantly reduced time and costs.
-
+![4](https://github.com/cristiancavelasquez/dashboard-comercial/assets/102259605/4267470f-bba4-4460-be21-a96bbb09fef9)
 
 Thank you for reading this markdown, I hope it has been very useful to you 😊.
 
-
-
-[^1]: A geographically delimited area for georeferencing purposes, based on the concept of a zip code. However, some modifications are made to it, with large cities being subdivided into smaller zones and small cities being treated as a single zone.
+[^1]: https://create.t3.gg/
