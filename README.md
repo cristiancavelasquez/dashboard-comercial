@@ -2,31 +2,13 @@
 The main objective of this project was to create a web app with a CRUD functionality. This CRUD enables Key Account Managers (KAMs) to update the products needed for each of their laboratories. Based on these updates, production personnel are informed about what needs to be produced.
 
 ## Context
-The company where this project was developed is a data analysis firm specializing in the pharmaceutical sector. Their information sources are pharmacy chains, and their clients are pharmaceutical laboratories. When a new supplier joins the company, a person within the company receives the addresses of all the supplier's retail locations and must place them within a UTC[^1]. Sometimes, the suppliers include coordinates for their retail locations as part of the address.
+Previously, a person from the commercial department was responsible for asking the Key Account Managers (KAMs) about the products needed. This method was highly prone to errors as the information was conveyed verbally, leading to frequent mistakes such as overproduction or, conversely, shortages. This person would compile the information and send it through an xlsx file, which often wasn't directed to the appropriate individuals, resulting in various inconveniences arising from handling this data through a flat file.
 
-![initialData](https://github.com/cristiancavelasquez/Maps_Automation/blob/31208ee67a7368d54116f5daaa513350c9f8ee78/Screenhot_folder/initialData.png)
-
-In the previous image, you can see a brief series of data. However, to grasp the scale of the total amount of data, the smallest provider associated with the company has around 3000 points of sale, and there are approximately more than 132 providers (pharmacy chains associated). This means that there are hundreds of thousands of addresses that a single person must assign manually whenever there are changes or when a new provider enters.
-
-Currently, the person in charge has a web application that operates with a Google Maps API. On the map of Colombia, the UTC areas are loaded. What the person needs to do manually is to type or copy and paste the address into the search bar. This action pins a specific point on the map. By clicking on the area where that point is located, the person can view the UTC associated with that address. Finally, they must copy and paste this UTC into a final Excel file where they correlate the address with the found UTC.
-
-![webapp](https://github.com/cristiancavelasquez/Maps_Automation/blob/31208ee67a7368d54116f5daaa513350c9f8ee78/Screenhot_folder/search.png)
-
-![utc](https://github.com/cristiancavelasquez/Maps_Automation/blob/31208ee67a7368d54116f5daaa513350c9f8ee78/Screenhot_folder/utc_found.png)
-
-As you can imagine, this process needs to be repeated countless times for each provided address, making it a highly demanding and time-consuming task.
+To address the aforementioned issue, I proposed developing a web app that would empower Key Account Managers (KAMs) to update their own products and laboratories. This application must be secure, fast, and user-friendly. Furthermore, it should incorporate role-based access control, as in addition to KAMs, there should also be production personnel with the ability to update the product status (Pending or Published).
 
 ## Development
 
-To solve this problem, I used Python and implemented the Selenium library to automate web navigation. The solution to this problem is divided into two code files:
-
-  - Finding a UTC for a given address - This was accomplished by navigating the web application.
-  - Given some coordinates, finding a "clean" address to use in the solution above - This was achieved using [Google Maps](https://www.google.com/maps).
-
-The above had to be solved in this way because the web application doesn't allow searching by coordinates, only by addresses. Additionally, as can be seen in the first image (data sample), sometimes less explicit addresses are provided, making coordinates the only alternative.
-
-> [!IMPORTANT]
-> **Inside the  ```.py``` files, you should be able to find well-documented documentation in English for the process that was carried out in the creation of each script.**
+In addition to being secure, fast, and user-friendly, this application also needed to be cost-effective to implement since it would serve as an internal tool without generating revenue. For these reasons, I decided to create the application using the T3 stack. This stack provides high security by utilizing Typescript, and for session management, NextAuth was employed, offering robust security features. The database is hosted on neon.tech.[^1]
 
 ## Results
 
