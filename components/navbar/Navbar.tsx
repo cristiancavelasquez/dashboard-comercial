@@ -14,7 +14,7 @@ const Navbar = async (props: Props) => {
     <section className="bg-white border-b-2 border-black px-8 py-4 flex justify-between items-center">
       <div className="flex gap-20">
         <img
-          src="https://www.close-upinternational.mx/regional_analyzer/images/logoCup.png"
+          src="https://www.close-upinternational.com/img/logo-footer.png"
           alt="LOGO"
           className="w-24"
         />
