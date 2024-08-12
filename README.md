@@ -1,4 +1,4 @@
-https://dashboard-comercial-cup.vercel.app/
+https://dashboard-comercial-cup.vercel.app/ 👈They decided to keep the .vercel url because it is an internal tool, and the idea is for it to be free or very low cost.
 
 # CRUD for product updates by the KAMs.
 The main objective of this project was to create a web app with a CRUD functionality. This CRUD enables Key Account Managers (KAMs) to update the products needed for each of their laboratories. Based on these updates, production personnel are informed about what needs to be produced.
